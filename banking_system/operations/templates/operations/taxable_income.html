@@ -1,0 +1,28 @@
+{% extends 'operations/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 720px; border-radius: 1rem;">
+        <h3 class="card-title text-center mb-4 text-success">💼 Taxable Income Calculator</h3>
+        <form method="post" class="row g-3">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label class="form-label">Gross Income (₹)</label>
+                <input type="number" name="gross_income" class="form-control" required placeholder="e.g., 800000">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Deductions (₹)</label>
+                <input type="number" name="deductions" class="form-control" required placeholder="e.g., 150000">
+            </div>
+            <div class="col-12 mt-3 text-center">
+                <button type="submit" class="btn btn-primary px-5">Calculate</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="alert alert-info mt-4 text-center fs-5">
+            <strong>Your Taxable Income:</strong> ₹{{ result }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'operations/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 750px; border-radius: 1rem;">
+        <h3 class="card-title text-center mb-4 text-danger">💳 Credit Card Interest Calculator</h3>
+        <form method="post" class="row g-3">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label class="form-label">Current Balance (₹)</label>
+                <input type="number" name="balance" class="form-control" required placeholder="e.g., 15000">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Annual Interest Rate (%)</label>
+                <input type="number" name="annual_rate" class="form-control" required placeholder="e.g., 24">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Months</label>
+                <input type="number" name="months" class="form-control" required placeholder="e.g., 6">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Minimum Payment Rate (default 5%)</label>
+                <input type="number" name="min_payment_rate" class="form-control" placeholder="Optional">
+            </div>
+            <div class="col-12 mt-3 text-center">
+                <button type="submit" class="btn btn-danger px-4">Calculate Balance</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="alert alert-warning mt-4 fs-5 text-center">
+            <strong>📉 Estimated Balance After Interest:</strong> ₹{{ result }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

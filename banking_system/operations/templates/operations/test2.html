@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Our Features</h2>
+    <div class="row">
+        <!-- EMI Calculator -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/emi-icon.png' %}" class="card-img-top" alt="EMI Calculator">
+                <div class="card-body">
+                    <h5 class="card-title">EMI Calculator</h5>
+                    <p class="card-text">Calculate your Equated Monthly Installments (EMI) effortlessly.</p>
+                    <a href="{% url 'home' %}" class="btn btn-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIP Calculator -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/sip-icon.png' %}" class="card-img-top" alt="SIP Calculator">
+                <div class="card-body">
+                    <h5 class="card-title">SIP Calculator</h5>
+                    <p class="card-text">Plan your investment with our SIP calculator.</p>
+                    <a href="{% url 'sip_calculator' %}" class="btn btn-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FD Calculator -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{% static 'images/fd-icon.png' %}" class="card-img-top" alt="FD Calculator">
+                <div class="card-body">
+                    <h5 class="card-title">FD Calculator</h5>
+                    <p class="card-text">Get the right FD returns based on your deposit amount.</p>
+                    <a href="{% url 'fd_calculator' %}" class="btn btn-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
